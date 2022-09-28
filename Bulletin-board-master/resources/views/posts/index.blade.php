@@ -16,10 +16,16 @@
   @endforeach
 </div>
 
-
+@can('system-only')
+<a href='/add_category' class="btn btn-danger">カテゴリーを追加</a>
+@endcan
 <a href="/create_post" class="btn btn-primary">投稿</a>
 
-@can('system-only')
-<a href='/add_category' class="btn btn-danger">カテゴリー追加</a>
-@endcan
+<div>
+  <form action="/top" method="get">
+    <input type="text" name="keyword" value="{{$keyword}}">
+    <input type="submit" value="検索" class="btn btn-primary">
+  </form>
+</div>
+
 @endsection

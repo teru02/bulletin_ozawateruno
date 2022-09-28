@@ -15,9 +15,18 @@ use App\Models\Posts\PostComment;
 class PostController extends Controller
 {
     //
-    public function index(){
-        $posts=Post::get();
-        return view('posts.index',['posts'=>$posts]);
+    public function index(Request $request){
+        $keyword=$request->keyword;
+        $query=Post::query();
+        if(!empty($keyword)){
+            $query->WhereHas('subCategory',function($q)use($keyword){
+                $q->where('post_sub_categories.sub_category',$keyword);
+            })
+            ->orWhere('title','like','%'.$keyword.'%')
+            ->orWhere('post','like','%'.$keyword.'%');
+        }
+        $posts=$query->get();
+        return view('posts.index',['posts'=>$posts,'keyword'=>$keyword]);
     }
 
     public function postCreateView(){
