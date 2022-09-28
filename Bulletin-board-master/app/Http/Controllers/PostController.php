@@ -50,4 +50,15 @@ class PostController extends Controller
         $post_subcategory=$post->subCategory->sub_category;
         return view('posts.edit',['post'=>$post,'sub_category'=>$sub_category,'post_subcategory'=>$post_subcategory]);
     }
+
+    public function postUpdate(Request $request,$id){
+        $post=Post::find($id);
+        $post->user_id=Auth::id();
+        $post->post_sub_category_id=$request->sub_category_id;
+        $post->title=$request->title;
+        $post->post=$request->post;
+
+        $post->save();
+        return redirect(route('detail',$id));
+    }
 }

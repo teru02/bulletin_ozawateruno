@@ -18,9 +18,9 @@
       @endforeach
     </select>
   <label for="title">タイトル</label>
-    <input type="text" id="title" value="{{old('title',$post->title)}}">
+    <input type="text" id="title" value="{{old('title',$post->title)}}" name="title">
   <label for="post">投稿内容</label>
-    <textarea id="post" value="{{old('post')}}" >{{$post->post}}</textarea>
+    <textarea id="post" value="{{old('post')}}" name="post">{{$post->post}}</textarea>
 
   <input type="submit" value="更新" class="btn btn-danger">
 </form>

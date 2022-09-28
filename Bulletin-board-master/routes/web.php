@@ -35,11 +35,11 @@ Route::get('/create_post','PostController@postCreateView');
 
 Route::post('new_post','PostController@newPost');
 
-Route::get('/post_detail/{id}','PostController@postDetail');
+Route::get('/post_detail/{id}','PostController@postDetail')->name('detail');
 
 Route::get('/post_detail/{id}/edit','PostController@postEdit');
 
-Route::post('/post_detail/{id}/edit/update','PostController@postUpdate');
+Route::post('/post_detail/{id}/update','PostController@postUpdate');
 
 Route::post('/post_detail/{id}/comment','PostCommentController@store');
 
