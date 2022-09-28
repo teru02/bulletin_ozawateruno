@@ -14,7 +14,7 @@
 
 @foreach($comment as $comment)
 <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
-<span>{{$comment->user->username}}</span>
+<span>{{$comment->user->username}}</span><span>さん</span>
 <span>{{$comment->event_at}}</span>
 <span>{{$comment->comment}}</span>
 <a href="" class="btn btn-danger">編集</a>
