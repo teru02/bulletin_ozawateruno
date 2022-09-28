@@ -57,6 +57,7 @@ class PostController extends Controller
         $post->post_sub_category_id=$request->sub_category_id;
         $post->title=$request->title;
         $post->post=$request->post;
+        $post->updated_at=Carbon::now('Asia/Tokyo');
 
         $post->save();
         return redirect(route('detail',$id));

@@ -17,7 +17,7 @@
 <span>{{$comment->user->username}}</span><span>さん</span>
 <span>{{$comment->event_at}}</span>
 <span>{{$comment->comment}}</span>
-<a href="" class="btn btn-danger">編集</a>
+<a href="{{$comment->id}}/comment_edit" class="btn btn-danger">編集</a>
 </div>
 @endforeach
 

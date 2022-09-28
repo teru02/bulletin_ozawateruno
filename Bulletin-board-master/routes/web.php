@@ -43,6 +43,10 @@ Route::post('/post_detail/{id}/update','PostController@postUpdate');
 
 Route::post('/post_detail/{id}/comment','PostCommentController@store');
 
+Route::get('/post_detail/{id}/comment_edit','PostCommentController@edit');
+
+Route::post('/post_detail/{id}/comment_update','PostCommentController@update');
+
 Route::group(['middleware'=>['auth','can:system-only']],function(){
 
 Route::get('/add_category','PostMainCategoryController@addView');
