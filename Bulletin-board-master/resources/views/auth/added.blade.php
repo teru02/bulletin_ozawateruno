@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.logout')
 
 @section('content')
 <p>登録ありがとうございます</p>

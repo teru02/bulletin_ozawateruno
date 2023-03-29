@@ -11,15 +11,13 @@
     <input type="text" name="main_category" id="new_main">
     <input type="submit" class="btn btn-danger" value="登録">
   </form>
-  @if ($errors->any())
-    <div class="alert alert-danger mt-3">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-  @endif
+  <div class="error">
+    <ul>
+      @if($errors->first('main_category'))
+        <li>{{ $errors->first('main_category') }}</li>
+      @endif
+    </ul>
+  </div>
 
 
   <form action="add_sub_category" method="post">
@@ -31,13 +29,41 @@
       <option value="{{$main_category->id}}">{{$main_category->main_category}}</option>
       @endforeach
     </select>
+    <div class="error">
+    <ul>
+      @if($errors->first('main_category_id'))
+        <li>{{$errors->first('main_category_id')}}</li>
+      @endif
+    </ul>
+    </div>
+
     <label for="new_sub">新規サブカテゴリー</label>
     <input type="text" name="sub_category" id="new_sub">
     <input type="submit" class="btn btn-danger" value="登録">
   </form>
+  <div class="error">
+    <ul>
+      @if($errors->first('sub_category'))
+        <li>{{ $errors->first('sub_category') }}</li>
+      @endif
+    </ul>
+  </div>
 
   <div>
     <h2>カテゴリー一覧</h2>
+      @foreach($category_list as $category_list)
+        <h5>{{$category_list->main_category}}</h5>
+          @if(isset($sub_category_id[$category_list->id]))
+            <h4>サブ</h4>
+          @else
+            <a href="/main_delete/{{$category_list->id}}" type="submit" value="削除" class="btn btn-danger">削除</a>
+          @endif
+              @foreach($category_list->postSubCategories as $sub_category)
+                <div>{{$sub_category->sub_category}}</div>
+                <a href="sub_delete/{{$sub_category->id}}" type="submit" value="削除" class="btn btn-danger">削除</a>
+              @endforeach
+
+      @endforeach
 
   </div>
 </div>

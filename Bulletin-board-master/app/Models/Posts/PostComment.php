@@ -3,6 +3,7 @@
 namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Posts\PostCommentFavorite;
 
 class PostComment extends Model
 {
@@ -22,6 +23,15 @@ class PostComment extends Model
     }
 
     public function user(){
-        return $this->belongsTo('App\Models\USers\User');
+        return $this->belongsTo('App\Models\Users\User');
     }
+
+    public function postCommentFavorites(){
+        return $this->hasMany('App\Models\Posts\PostCommentFavorite');
+    }
+
+    public function isLikedBy($user): bool {
+        return PostCommentFavorite::where('user_id', $user->id)->where('post_comment_id', $this->id)->first() !==null;
+    }
+
 }

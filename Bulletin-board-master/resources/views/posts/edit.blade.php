@@ -25,6 +25,16 @@
   <input type="submit" value="更新" class="btn btn-danger">
 </form>
 
-  <input type="submit" value="削除" class="btn btn-danger">
+@if(count($errors) > 0)
+    <div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+    </div>
+@endif
+
+  <a href="delete" type="submit" value="削除" class="btn btn-danger">削除</a>
 
 @endsection

@@ -10,26 +10,31 @@
     <title>掲示板課題</title>
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/favorite.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/style.css')}}" rel="stylesheet">
 </head>
 <body>
     <div class="header">
         <div id="page_name">
             @yield('page_name')
         </div>
-        <a href="logout" class="btn btn-primary">ログアウト</a>
+        <a href="{{route('logout')}}" class="btn btn-primary">ログアウト</a>
     </div>
     <div class="container">
         <div class="">
             @yield('content')
         </div>
     </div>
+
 </body>
 </html>

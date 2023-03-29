@@ -20,6 +20,13 @@
                         <input type="password" name="password" required>
                     </div>
             </div>
+            @if(isset($error))
+            <div class="alert alert-danger">
+                <ui>
+                <li>{{$error}}</li>
+                </ui>
+            @endif
+            </div>
 
             <div class="">
                 <div class="">

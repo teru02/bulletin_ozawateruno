@@ -29,4 +29,16 @@ class Post extends Model
     public function comments(){
         return $this->hasMany('App\Models\Posts\PostComment');
     }
+
+    public function users(){
+        return $this->belongsToMany('App\Models\Users\User')->withTimestamps();
+    }
+
+    public function postFavorites(){
+        return $this->hasMany('App\Models\Posts\PostFavorite');
+    }
+
+    public function isFavoritedBy($user): bool {
+        return postFavorite::where('user_id', $user->id)->where('post_id', $this->id)->first() !==null;
+    }
 }

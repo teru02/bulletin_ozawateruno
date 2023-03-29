@@ -16,4 +16,12 @@ class PostSubCategoryController extends Controller
         DB::table('post_sub_categories')->insert($param);
         return redirect("/add_category");
     }
+
+    public function delete($id){
+        \DB::table('post_sub_categories')
+             ->where('id',$id)
+             ->delete();
+
+             return redirect('/add_category');
+    }
 }

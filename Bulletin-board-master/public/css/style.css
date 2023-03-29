@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+html {}
+
+body {}
+
+.favorited,
+.liked {
+  color: red;
+}
+
+.error {
+  color: red;
+}

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\Models\Users\User;
+use App\Http\Requests\RegisterRequest;
 
 class RegisterController extends Controller
 {
@@ -22,7 +23,7 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request){
+    public function register(RegisterRequest $request){
             $data=$request->input();
             $this->create($data);
             return redirect('added');

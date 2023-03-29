@@ -12,4 +12,13 @@ class PostFavorite extends Model
         'user_id',
         'post__id',
     ];
+
+    public function user(){//いいねしているuser
+        return $this->belongsTo('App\Models\Users\User');
+    }
+
+    public function post(){//いいねしているpost
+        return $this->belongsTo('App\Models\Posts\Post');
+    }
+
 }

@@ -19,4 +19,13 @@
     <textarea name="post"></textarea>
   <input type="submit" value="投稿" class="btn btn-danger">
 </form>
+@if(count($errors) > 0)
+    <div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+    </div>
+@endif
 @endsection

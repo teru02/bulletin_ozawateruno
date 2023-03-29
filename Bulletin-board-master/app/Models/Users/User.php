@@ -24,4 +24,13 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany('App\Models\Posts\PostComment');
     }
+
+    public function postFavorites(){
+        return $this->hasMany('App\Models\Posts\PostFavorite');
+    }
+
+    public function postCommentFavorites(){
+        return $this->hasMany('App\Models\Posts\PostCommentFavorite');
+    }
+
 }
