@@ -1,22 +1,19 @@
 @extends('layouts.logout')
-@section('page_name')
-<p>ログイン</p>
-@endsection
 @section('content')
-<div class="container">
-    <div class="">
+    <div class="form-content">
+        <h5>ログイン</h5>
         <form method="POST" action="/login">
         @csrf
-            <div class="">
+            <div class="form-group">
                 <label for="email">メールアドレス</label>
-                    <div class="">
+                    <div>
                         <input type="text" name="email" required autofocus>
                     </div>
             </div>
 
-            <div class="">
+            <div class="form-group">
                 <label for="password">パスワード</label>
-                    <div class="">
+                    <div>
                         <input type="password" name="password" required>
                     </div>
             </div>
@@ -25,16 +22,10 @@
                 <ui>
                 <li>{{$error}}</li>
                 </ui>
+            </div>
             @endif
-            </div>
-
-            <div class="">
-                <div class="">
-                    <button type="submit" class="btn btn-primary">ログイン</button>
-                </div>
-            </div>
+                <button type="submit" class="btn btn-primary">ログイン</button>
         </form>
+        <p>新規ユーザー登録は<a href="/register_view">こちら</a></p>
     </div>
-    <p>新規ユーザー登録は<a href="/register_view">こちら</a></p>
-</div>
 @endsection

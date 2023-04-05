@@ -1,13 +1,13 @@
 @extends('layouts.login')
 @section('page_name')
-<h1><a href="top">カテゴリー追加画面</a></h1>
+<a href="top" class="page-name">カテゴリー追加画面</a>
 @endsection
 
 @section('content')
-<div>
-  <form action="add_main_category" method="post">
+<div id="main-content">
+  <form action="add_main_category" method="post" class="add-category">
     @csrf
-    <label for="new_main">新規メインカテゴリー</label>
+    <h4 for="new_main">新規メインカテゴリー</h4>
     <input type="text" name="main_category" id="new_main">
     <input type="submit" class="btn btn-danger" value="登録">
   </form>
@@ -20,9 +20,9 @@
   </div>
 
 
-  <form action="add_sub_category" method="post">
+  <form action="add_sub_category" method="post" class="add-category">
     @csrf
-    <label for="main">メインカテゴリー</label>
+    <h4 for="main">メインカテゴリー</h4>
     <select name="main_category_id" id="main">
       <!-- <option value="">メインカテゴリーを選択してください</option> -->
       @foreach($main_category as $main_category)
@@ -37,7 +37,7 @@
     </ul>
     </div>
 
-    <label for="new_sub">新規サブカテゴリー</label>
+    <h4 for="new_sub">新規サブカテゴリー</h4>
     <input type="text" name="sub_category" id="new_sub">
     <input type="submit" class="btn btn-danger" value="登録">
   </form>
@@ -48,19 +48,23 @@
       @endif
     </ul>
   </div>
-
+</div>
+<div id="sub-content">
   <div>
-    <h2>カテゴリー一覧</h2>
+    <h4>カテゴリー一覧</h4>
       @foreach($category_list as $category_list)
-        <h5>{{$category_list->main_category}}</h5>
+        <div class="main-category">
+          <span>{{$category_list->main_category}}</span>
           @if(isset($sub_category_id[$category_list->id]))
-            <h4>サブ</h4>
           @else
             <a href="/main_delete/{{$category_list->id}}" type="submit" value="削除" class="btn btn-danger">削除</a>
           @endif
+          </div>
               @foreach($category_list->postSubCategories as $sub_category)
-                <div>{{$sub_category->sub_category}}</div>
+                <div class="sub-category">
+                  <span>{{$sub_category->sub_category}}</span>
                 <a href="sub_delete/{{$sub_category->id}}" type="submit" value="削除" class="btn btn-danger">削除</a>
+                </div>
               @endforeach
 
       @endforeach

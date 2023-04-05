@@ -1,8 +1,159 @@
 @charset "utf-8";
 
-html {}
+html {
+  height: 100%;
+}
 
-body {}
+#header {
+  max-width: 1024px;
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#header a {
+  margin-left: auto;
+}
+
+.logout-btn {
+  position: absolute;
+  right: 0;
+  top: 30%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+
+.container {
+  max-width: 1024px;
+  /* ① max-width:最大横幅 */
+  width: 90%;
+  /* ② width:横幅 */
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.page-name {
+  position: absolute;
+  left: 10px;
+  top: 20%;
+  font-size: xx-large;
+}
+
+/* ログイン関係 */
+.form-content {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.form-content h5 {
+  text-align: center;
+}
+
+.form-group {
+  margin: 30px 0;
+}
+
+.form-group input {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form-content button {
+  margin: 20px;
+  display: block;
+  margin-left: auto;
+}
+
+.add-content {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.add-content a {
+  margin-top: 20px;
+}
+
+/* index関係 */
+#row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#main-content {
+  width: 50%;
+}
+
+.timeline {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #333333;
+  text-align: justify;
+}
+
+.timeline span {
+  margin: 20px 10px;
+}
+
+.timeline .block {
+  display: block;
+}
+
+.post-sub {
+  font-weight: 400;
+  color: #fff;
+  color: white;
+  text-align: center;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  background-color: #3490dc;
+  border-color: #3490dc;
+}
+
+#sub-content {
+  width: 50%;
+  padding: 10px;
+}
+
+.sub-btn {
+  margin-top: 10px;
+}
+
+.big-btn {
+  width: 80%;
+}
+
+.post-btn {
+  width: 50%;
+}
+
+.search input {
+  width: 20%;
+}
+
+.search .text {
+  width: 50%;
+}
+
+.category {
+  padding: 20px;
+}
+
+.main-category {
+  padding: 10px 0 10px 10px;
+  font-size: medium;
+}
+
+.sub-category {
+  display: block;
+  margin-left: 50px;
+  margin-bottom: 5px;
+}
 
 .favorited,
 .liked {
@@ -11,4 +162,134 @@ body {}
 
 .error {
   color: red;
+}
+
+/* 新規カテゴリー追加 */
+.add-category {
+  margin-bottom: 80px;
+}
+
+.add-category input,
+select {
+  display: block;
+  margin: 10px auto;
+  width: 90%;
+}
+
+.add-category select {
+  height: 30px;
+}
+
+.main-category span,
+.sub-category span {
+  display: inline-block;
+  width: 80%;
+}
+
+/* 投稿画面 */
+#post-content {
+  width: 80%;
+}
+
+#post-content .post-btn {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.new-post,
+.comment-edit {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#post-content textarea {
+  resize: none;
+  min-height: 300px;
+}
+
+
+/* 投稿詳細 */
+.post-detail {
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  /* margin-bottom: 70px; */
+}
+
+.post-block {
+  margin: 10px 0 30px 0;
+  position: relative;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.child {
+  position: absolute;
+  right: 0;
+}
+
+.comment-count {
+  margin-right: 20px;
+}
+
+/* 詳細画面コメント */
+#comment {
+  width: 100%;
+}
+
+#comment textarea {
+  resize: none;
+  display: block;
+  width: 100%;
+  min-height: 100px;
+}
+
+.comment-post {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.comment-post .btn {
+  display: block;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.comment {
+  min-height: 80px;
+  padding: 10px 20px 20px 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid lightgray;
+  display: flex;
+}
+
+.comment-right {
+  width: 80%;
+}
+
+.comment-right div {
+  margin: 10px 0;
+}
+
+.user {
+  display: inline-block;
+  width: 100px;
+}
+
+.comment-left {
+  width: 20%;
+  text-align: right;
+}
+
+.comment-left .btn {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
+.comment-left span {
+  margin-left: 5px;
 }

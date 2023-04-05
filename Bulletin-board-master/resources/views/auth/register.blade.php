@@ -1,10 +1,8 @@
 @extends('layouts.logout')
-@section('page_name')
-<p>ユーザー登録</p>
-@endsection
 @section('content')
 <div class="container">
-    <div class="">
+    <div class="form-content">
+        <h5>ユーザー登録</h5>
         <form method="POST" action="/register">
             @csrf
             <div class="form-group">

@@ -1,16 +1,17 @@
 @extends('layouts.login')
 
 @section('page_name')
-<h1><a href="/top">コメント編集画面</a></h1>
+<a href="/top" class="page-name">コメント編集画面</a>
 @endsection
 
 @section('content')
+<div id="post-content">
 <form action="comment_update" method="post">
   @csrf
-  <label for="comment">コメント</label>
-    <textarea id="comment" value="{{old('comment')}}" name="comment">{{$comment->comment}}</textarea>
+  <h4 for="comment">コメント</h4>
+    <textarea id="comment" value="{{old('comment')}}" name="comment" class="comment-edit">{{$comment->comment}}</textarea>
     <input type="hidden" value="{{ $comment->id }}" name="comment_id">
-  <input type="submit" value="更新" class="btn btn-danger">
+  <input type="submit" value="更新" class="btn btn-danger post-btn">
 </form>
   @if(count($errors) > 0)
     <div class="alert alert-danger">
@@ -26,6 +27,7 @@
 <form action="comment_delete" method="get">
   @csrf
   <input type="hidden" value="{{ $comment->id }}" name="comment_id">
-  <input type="submit" value="削除" class="btn btn-danger">
+  <input type="submit" value="削除" class="btn btn-danger post-btn">
 </form>
+</div>
 @endsection

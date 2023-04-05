@@ -47,6 +47,7 @@ class PostController extends Controller
         $posts=$query->get();
         $main_category=PostMainCategory::get();
 
+
         return view('posts.index',['posts'=>$posts,'keyword'=>$keyword,'main_category'=>$main_category]);
     }
 
@@ -72,6 +73,7 @@ class PostController extends Controller
     public function postDetail($id){
         $post=Post::withCount('comments','postFavorites')->find($id);
         $comment=PostComment::withCount('user','postCommentFavorites')->where('post_id','=',$id)->get();
+
 
         return view('posts.detail',['post'=>$post,'comment'=>$comment]);
     }

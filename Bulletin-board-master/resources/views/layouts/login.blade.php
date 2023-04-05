@@ -24,17 +24,16 @@
     <link href="{{ asset('/css/style.css')}}" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <div id="page_name">
+    <div id="header">
             @yield('page_name')
-        </div>
-        <a href="{{route('logout')}}" class="btn btn-primary">ログアウト</a>
+          <a href="{{route('logout')}}" class="btn btn-primary logout-btn">ログアウト</a>
     </div>
-    <div class="container">
-        <div class="">
+
+      <div class="container">
+          <div id="row">
             @yield('content')
-        </div>
-    </div>
+          </div>
+      </div>
 
 </body>
 </html>
